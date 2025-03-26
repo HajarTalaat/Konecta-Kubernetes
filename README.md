@@ -59,4 +59,36 @@ Command: sudo kubeadm join 172.31.77.207:6443 --token ji2d6l.n7ow5m6rouyq3koh \
 ![k8s3](https://github.com/user-attachments/assets/9e116a4d-ea50-4cd9-83a1-dcb404b25867)
 
 
+1- create pod nginx with name my nginx direct from command don't use yaml file.
+
+Explanation: We use the kubectl run command to create a pod named my-nginx directly from the command line. This command uses the default nginx image available on Docker Hub. 
+
+Command used: kubectl run my-nginx --image=nginx
+
+2- create pod nginx with name my nginx command and use Image nginx123  direct from command don't use yaml file.
+
+Explanation: In this step, we attempt to create a pod with the name (my-nginx) but specify a different image, nginx123. 
+
+Command used: kubectl run my-nginx --image=nginx123
+
+![k8s4](https://github.com/user-attachments/assets/f59bddff-d98a-452a-8fcb-1cde7d8a94b6)
+
+3- check the status and why it dosn't work.
+
+Explanation: After creating the pod, it’s important to check its status to determine if it’s running as expected or if there are errors. The second pod could not be created because we cannot create 2 pods with the same name. 
+
+Command used: kubectl get pods , kubectl describe pod my-nginx
+
+4- I need to know node name - IP - Image.
+
+Explanation: To gather more detailed information about the pod, such as the node on which it is running, the pod’s IP address, and the image being used, we run the following command. The -o wide option provides extended output details that include node name and pod IP. 
+
+Command used: kubectl get pod my-nginx -n default -o wide , this command gets the Node Name and Pod IP 
+
+kubectl describe pod my-nginx -n default , this command gets the container image
+
+
+
+
+
 
